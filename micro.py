@@ -18,8 +18,9 @@ def tv(canal):
 
     }
 
+
 def cep(num):
-    response = get('https://cep.awesomeapi.com.br/json/{num}').json
+    response = get(f'https://cep.awesomeapi.com.br/json/{num}').json
     return response
 
 
