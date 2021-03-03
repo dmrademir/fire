@@ -11,7 +11,12 @@ def dollar():
 def tv(canal):
     response = get(f'https://meuguia.tv/programacao/canal/{canal}').text
     s = Selector(response)
-    return s.css('h2::text').get()
+    return {
+        'Nome': s.css('h2::text').get(),
+        'Horário':s.css('div.time::text').get(),
+        'Tipo': s.css('h3::text').get()
+
+    }
 
 def cep(num):
     response = get('https://cep.awesomeapi.com.br/json/{num}').json
